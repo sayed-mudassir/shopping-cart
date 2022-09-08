@@ -1,0 +1,48 @@
+<%= form_with(model: b) do |form| %>
+  <% if b.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(b.errors.count, "error") %> prohibited this b from being saved:</h2>
+
+      <ul>
+        <% b.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :cod %>
+    <%= form.text_field :cod, placeholder: "enter yes for cod" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, placeholder: "address" %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :phone_no %>
+    <%= form.number_field :phone_no, placeholder: "phone no"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :card_number %>
+    <%= form.number_field :card_number, placeholder: "optional for cod" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cvv %>
+    <%= form.number_field :cvv, placeholder: "optional for cod" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exp_date %>
+    <%= form.text_field :exp_date, placeholder: "optional for cod" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

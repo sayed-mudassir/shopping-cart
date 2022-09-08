@@ -1,0 +1,11 @@
+<h1> add to carts show</h1>
+<h3><% @order_items.each do |item| %>
+<h3><%= item.product.title %></h3>
+<h5><%= item.product.price %></h5>
+<%end%></h3>
+
+<%= render 'card' %>
+
+<div>
+	<h1><%= link_to "buy now", new_b_path(@b) %></h1>
+</div>

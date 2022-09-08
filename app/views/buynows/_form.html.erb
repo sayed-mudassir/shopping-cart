@@ -1,0 +1,53 @@
+<%= form_with(model: buynow) do |form| %>
+  <% if buynow.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(buynow.errors.count, "error") %> prohibited this buynow from being saved:</h2>
+
+      <ul>
+        <% buynow.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pin_code %>
+    <%= form.number_field :pin_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_number %>
+    <%= form.number_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_number %>
+    <%= form.number_field :phone_number %>
+  </div>
+
+    <div class="field">
+    <%= form.label :cod %>
+    <%= form.check_box :cod %>
+  </div>
+
+
+  <div>
+   <%= form.fields_for :payments do |payment|%>
+      <%= render 'payment_fields', f: payment%> 
+      <%end%>
+  </div>
+
+  <div class="link">
+      <%= link_to_add_association 'add payment', form, :payments %> <br><br>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

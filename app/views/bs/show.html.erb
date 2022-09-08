@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @b.address %>
+</p>
+
+
+<p>
+  <strong>Phone no:</strong>
+  <%= @b.phone_no %>
+</p>
+
+<p>
+  <strong>Card number:</strong>
+  <%= @b.card_number %>
+</p>
+
+<p>
+  <strong>Cvv:</strong>
+  <%= @b.cvv %>
+</p>
+
+<p>
+  <strong>Exp date:</strong>
+  <%= @b.exp_date %>
+</p>
+
+<p>
+  <strong>Cod:</strong>
+  <%= @b.cod %>
+</p>
+
+
+<%= link_to 'Edit', edit_b_path(@b) %> |
+<%= link_to 'Back', root_path %>

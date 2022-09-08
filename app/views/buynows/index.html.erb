@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Buynows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Pin code</th>
+      <th>Phone number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @buynows.each do |buynow| %>
+      <tr>
+        <td><%= buynow.address %></td>
+        <td><%= buynow.pin_code %></td>
+        <td><%= buynow.phone_number %></td>
+        <td><%= link_to 'Show', buynow %></td>
+        <td><%= link_to 'Edit', edit_buynow_path(buynow) %></td>
+        <td><%= link_to 'Destroy', buynow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Buynow', new_buynow_path %>

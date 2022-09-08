@@ -1,0 +1,2 @@
+module BsHelper
+end

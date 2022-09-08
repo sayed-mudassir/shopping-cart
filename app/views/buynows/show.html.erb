@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @buynow.address %>
+</p>
+
+<p>
+  <strong>Pin code:</strong>
+  <%= @buynow.pin_code %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @buynow.phone_number %>
+</p>
+
+<%= link_to 'Edit', edit_buynow_path(@buynow) %> |
+<%= link_to 'Back', buynows_path %>

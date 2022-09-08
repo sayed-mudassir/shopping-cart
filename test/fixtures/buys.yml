@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: MyString
+  pin_code: 1
+  phone_number: 1
+  card_number: 1
+  cvv: 1
+  exp_date: 1
+
+two:
+  address: MyString
+  pin_code: 1
+  phone_number: 1
+  card_number: 1
+  cvv: 1
+  exp_date: 1

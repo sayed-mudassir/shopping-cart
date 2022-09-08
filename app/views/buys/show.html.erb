@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @buy.address %>
+</p>
+
+<p>
+  <strong>Pin code:</strong>
+  <%= @buy.pin_code %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @buy.phone_number %>
+</p>
+
+<p>
+  <strong>Card number:</strong>
+  <%= @buy.card_number %>
+</p>
+
+<p>
+  <strong>Cvv:</strong>
+  <%= @buy.cvv %>
+</p>
+
+<p>
+  <strong>Exp date:</strong>
+  <%= @buy.exp_date %>
+</p>
+
+<p>
+  <strong>cod:</strong>
+  <%= @buy.cod %>
+</p>
+
+<%= link_to 'Edit', edit_buy_path(@buy) %> |
+<%= link_to 'Back', root_path %>
