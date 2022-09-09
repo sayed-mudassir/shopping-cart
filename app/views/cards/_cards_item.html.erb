@@ -1,0 +1,54 @@
+
+
+<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+   
+   <p class="lead">
+    <%= link_to "home", root_path, class: 'btn btn-primary' %>
+  </p> 
+
+  <h1 class="display-4">
+    CART Items
+  </h1>
+
+<% @order_items.each do |item| %>
+  <p class="lead">
+    <h4><strong>product name: <%= item.product.title %></strong></h4>
+  </p>
+
+  <p class="lead">
+    <h4><strong>product price: <%= item.product.price %></strong></strong></h4>
+  </p>
+
+  <p class="lead">
+    <%= form_for item, remote: true do |f| %>
+	<%= f.hidden_field :product_id, :value => item.product.id %>
+	Qantity: <%= f.number_field :quantity, :value => item.quantity.to_i %>
+	<%= f.submit "update cards" %>
+  </p>
+  <%end%>
+
+   <p class="lead">
+    <strong>subtotal: <%= item.total %></strong>
+  </p>
+
+  <p class="lead">
+    <%= link_to 'remove items', order_item_path(item), method: :delete, remote: true, class: 'btn btn-danger' %>
+  </p>
+
+  <p class="lead">
+    <%#= link_to "buy now", new_b_path(@b), class: 'btn btn-secondary' %>
+  </p>
+
+  <%end%>
+   <p class="lead">
+    <strong><h3>total payable price is : <%= current_order.subtotal %> </h3></strong>
+  </p>
+    
+
+	<p class="lead">
+    <%= link_to "buy now", new_b_path(@b), class: 'btn btn-success' %>
+  </p>    
+   
+</div>
+

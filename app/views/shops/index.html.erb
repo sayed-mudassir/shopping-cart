@@ -1,19 +1,21 @@
 <p id="notice"><%= notice %></p>
-<%if !user_signed_in?%>
-<%= link_to 'sign in',  new_user_session_path%>
-<%= link_to 'sign up', new_user_registration_path %>
-<%else%>
-<%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-<%end%>
+<%#if !user_signed_in?%>
+<%#= link_to 'sign in',  new_user_session_path%>
+<%#= link_to 'sign up', new_user_registration_path %>
+<%#else%>
+<%#= link_to 'sign out', destroy_user_session_path, method: :delete %>
+<%#end%>
 
 <h1>Products</h1>
 
-<table>
-  <thead>
+<table class="table table-striped" >
+  <thead class="thead-dark" >
     <tr>
       <th>Title</th>
       <th>Price</th>
-      <th colspan="3"></th>
+      <th>action:</th>
+      <th></th>
+      <th>add to cart:</th>
     </tr>
   </thead>
 
@@ -22,18 +24,22 @@
       <tr>
         <td><%= product.title %></td>
         <td><%= product.price %></td>
-        <td><%= link_to 'Show', shop_path(product) %></td>
-        <%# if @card.user == current_user %>
-        <td><%#= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%#= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%#= link_to 'New Project', new_project_path %>
-        <%#end%>
+        <td><%= link_to 'Show', shop_path(product), class: 'btn btn-secondary' %></td>
+        <% if product.user == current_user %>
+        <td><%= link_to 'admin mode', products_path, class: 'btn btn-lg btn-warning' %>
+        <%= link_to 'add product', new_product_path, class:"btn btn-info" %>
+          <%= link_to 'Destroy product', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+        <%end%>
+        
 
         <td>
           <%= form_for @order_item, remote: true do |form| %>
           <%= form.hidden_field :product_id, :value => product.id %>
           <%= form.number_field :quantity, :value => 1, :min => 1 %>
           <%= form.submit "add to cart" %>
+
+
           <%end%>
         </td>
         
@@ -45,5 +51,8 @@
 <h3><strong>price: <%= current_order.subtotal%></strong></h3>
 <br>
 <div id="card">
-  <h2><strong><%= link_to "#{current_order.order_items.size} items with a value of #{current_order.subtotal}Rs.", cards_show_path%></strong></h2>
+  <%= render 'cards/card' %>
+  <h2><strong><%#= link_to "#{current_order.order_items.size} items with a value of #{current_order.subtotal}Rs.", cards_show_path , class: 'btn btn-secondary' %>
+    <%#= link_to 'go to cart',  cards_show_path , class: 'btn btn btn-secondary' %>
+  </strong></h2>
 </div>

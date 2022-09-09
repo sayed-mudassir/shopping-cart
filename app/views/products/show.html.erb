@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<div class="jumbotron">
+  <h1 class="display-4">
+    <strong>Title:</strong>
   <%= @product.title %>
-</p>
-
-<p>
-  <strong>Price:</strong>
+  </h1>
+  <p class="lead">
+     <strong>Price:</strong>
   <%= @product.price %>
-</p>
+  </p>
+  <p class="lead">
+  <% if @product.user == current_user %>
+    <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-outline-secondary' %> 
+    <%= link_to 'Back', products_path, class: 'btn btn-primary' %>
+  <%end%>
+  </p>
+</div>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>

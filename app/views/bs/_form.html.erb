@@ -13,36 +13,36 @@
 
   <div class="field">
     <%= form.label :cod %>
-    <%= form.text_field :cod, placeholder: "enter yes for cod" %>
+    <%= form.text_field :cod, class: 'form-control', placeholder: "enter yes for cod" %>
   </div>
 
   <div class="field">
     <%= form.label :address %>
-    <%= form.text_field :address, placeholder: "address" %>
+    <%= form.text_field :address, class: 'form-control', placeholder: "address", required: true %>
   </div>
 
 
   <div class="field">
     <%= form.label :phone_no %>
-    <%= form.number_field :phone_no, placeholder: "phone no"  %>
+    <%= form.number_field :phone_no,class: 'form-control' , placeholder: "phone no", required: true  %>
   </div>
-
-  <div class="field">
+  <div class="row">
+  <div class="col">
     <%= form.label :card_number %>
-    <%= form.number_field :card_number, placeholder: "optional for cod" %>
+    <%= form.number_field :card_number,class: 'form-control' , placeholder: "optional for cod" %>
   </div>
 
-  <div class="field">
+  <div class="col">
     <%= form.label :cvv %>
-    <%= form.number_field :cvv, placeholder: "optional for cod" %>
+    <%= form.number_field :cvv,class: 'form-control' , placeholder: "optional for cod" %>
   </div>
 
-  <div class="field">
+  <div class="col">
     <%= form.label :exp_date %>
-    <%= form.text_field :exp_date, placeholder: "optional for cod" %>
+    <%= form.date_field :exp_date,class: 'form-control' , placeholder: "optional for cod" %>
   </div>
-
+</div><hr>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "place order" ,class: 'btn btn-success' %>
   </div>
 <% end %>

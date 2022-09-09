@@ -1,15 +1,2 @@
-
-<% @order_items.each do |item| %>
-<h3><%= item.product.title %></h3>
-<h5><%= item.product.price %></h5>
-
-
-<%= form_for item do |f| %>
-<%= f.hidden_field :product_id, :value => item.product.id %>
-Qantity: <%= f.number_field :quantity, :value => item.quantity.to_i %>
-<%= f.submit "update cards" %>
-
-
-<%end%>
-<h2>subtotal<%= item.total %></h2>
-<%end%>
+<%#= link_to "#{current_order.order_items.size} items with a value of #{current_order.subtotal}Rs.", cards_show_path , class: 'btn btn-secondary' %> 
+<%= link_to 'go to cart',  cards_show_path , class: 'btn btn btn-info' %>

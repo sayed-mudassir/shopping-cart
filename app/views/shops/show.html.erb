@@ -1,12 +1,22 @@
+
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="jumbotron">
+  <h1 class="display-4">
+  PRODUCT DETAILS
+  </h1>
+  <p class="lead">
   <strong>Title:</strong>
   <%= @product.title %>
-</p>
+  </p>
 
-<p>
+  <p class="lead">
   <strong>Price:</strong>
   <%= @product.price %>
-</p>
-<%= link_to 'Back', root_path %>
+  </p>
+
+  <p class="lead">
+    <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
+  </p>
+</div>
+

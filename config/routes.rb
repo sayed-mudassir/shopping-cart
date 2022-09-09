@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   resources :shops, only:[:index , :show]
   resources :cards, only:[:show]
   resources :order_items
-  resources :products
+  resources :products do 
+    collection do
+      get 'buy_view'
+      get 'user_cart'
+    end
+  end
   root to: "shops#index"
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
