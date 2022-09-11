@@ -11,7 +11,6 @@
       <th>Card number</th>
       <th>Cvv</th>
       <th>Exp date</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -24,8 +23,44 @@
         <td><%= b.card_number %></td>
         <td><%= b.cvv %></td>
         <td><%= b.exp_date %></td>
-        <td><%= link_to 'Show', b %></td>
       </tr>
+      
+
+<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+   
+   <p class="lead">
+    <%= link_to "home", products_path, class: 'btn btn-primary' %>
+  </p> 
+
+  <h1 class="display-4">
+    LIST OF ORDERS
+  </h1>
+
+<% @order_items.each do |item| %>
+  <p class="lead">
+    <h4><strong>product name: <%= item.product.title %></strong></h4>
+  </p>
+
+  <p class="lead">
+    <h4><strong>product price: <%= item.product.price %></strong></strong></h4>
+  </p>
+
+   <p class="lead">
+    <strong>subtotal: <%= item.total %></strong>
+  </p>
+
+  <p class="lead">
+    <%#= link_to "buy now", new_b_path(@b), class: 'btn btn-secondary' %>
+  </p>
+
+  <%end%>
+   <p class="lead">
+    <strong><h3>total amount collect from customer : <%= current_order.subtotal %> </h3></strong>
+  </p>   
+</div>
+
+
     <% end %>
   </tbody>
 </table>

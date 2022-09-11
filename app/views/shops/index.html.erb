@@ -14,7 +14,7 @@
       <th>Title</th>
       <th>Price</th>
       <th>action:</th>
-      <th></th>
+      <th>admin mode actions: </th>
       <th>add to cart:</th>
     </tr>
   </thead>
@@ -26,10 +26,12 @@
         <td><%= product.price %></td>
         <td><%= link_to 'Show', shop_path(product), class: 'btn btn-secondary' %></td>
         <% if product.user == current_user %>
-        <td><%= link_to 'admin mode', products_path, class: 'btn btn-lg btn-warning' %>
-        <%= link_to 'add product', new_product_path, class:"btn btn-info" %>
+        <td><%= link_to 'switch to admin mode', products_path, class: 'btn btn-warning' %>
+        <%#= link_to 'add product', new_product_path, class:"btn btn-info" %>
           <%= link_to 'Destroy product', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
+        <%else%>
+        <td><h3><strong><ins>you are not admin for this item</ins></strong></h3></td>
         <%end%>
         
 

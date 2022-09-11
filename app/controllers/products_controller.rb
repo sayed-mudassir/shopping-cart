@@ -1,14 +1,21 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only:[:edit, :update, :destroy]
   # GET /products or /products.json
   def index
     @products = Product.all
     @bs = B.all
   end
 
+  def correct_user
+    @friend = current_user.products.find_by(id: params[:id])
+    redirect_to products_path, notice: " you are not authorize to perform this action" if @friend.nil? 
+  end
+
   def buy_view
     @bs = B.all
+    @order_items = OrderItem.all
   end
 
   def user_cart

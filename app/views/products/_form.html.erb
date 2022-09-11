@@ -25,6 +25,7 @@
     <%= form.label :user_id %>
     <%= form.number_field :user_id, id: :product_user_id, class: 'form-control-plaintext', value: current_user.id,  readonly: true %>
   </div>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
   <div class="actions">
     <%= form.submit class: 'btn btn-outline-success' %><hr>
