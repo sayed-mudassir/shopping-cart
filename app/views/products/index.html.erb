@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 <h1>admin</h1>
 
 <table class="table table-striped">
@@ -22,7 +22,7 @@
         <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
         <% if product.user == current_user %>
       <td>  <%= link_to 'user contact details', buy_view_products_path, class: 'btn btn-outline-secondary' %>
-        <%= link_to 'user order details', user_cart_products_path, class: 'btn btn-outline-info' %>
+        
       </td>
       </tr>
      

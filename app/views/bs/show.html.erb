@@ -1,36 +1,40 @@
-<p id="notice"><%= notice %></p>
-
-<p>
+<div class="jumbotron">
+  <h1 class="display-4">
+    your order is placed
+  </h1>
+  <p class="lead">
   <strong>Address:</strong>
   <%= @b.address %>
-</p>
+  </p>
 
-
-<p>
+  <p class="lead">
   <strong>Phone no:</strong>
   <%= @b.phone_no %>
-</p>
+  </p>
 
-<p>
+  <p class="lead">
   <strong>Card number:</strong>
   <%= @b.card_number %>
-</p>
+  </p>
 
-<p>
+  <p class="lead">
   <strong>Cvv:</strong>
   <%= @b.cvv %>
-</p>
+  </p>
 
-<p>
-  <strong>Exp date:</strong>
-  <%= @b.exp_date %>
-</p>
-
-<p>
+  <p class="lead">
   <strong>Cod:</strong>
   <%= @b.cod %>
-</p>
+  </p>
 
+  <p class="lead">
+  <strong>Exp date:</strong>
+  <%= @b.exp_date %>
+  </p>
 
-<%= link_to 'Edit', edit_b_path(@b) %> |
-<%= link_to 'Back', root_path %>
+  <p class="lead">
+  <%= link_to 'Edit', edit_b_path(@b), class: "btn btn-outline-dark" %> |
+  <%= link_to 'Back', root_path, class: 'btn btn-outline-primary' %>
+  </p>
+</div>
+
