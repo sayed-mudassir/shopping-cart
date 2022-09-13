@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     collection do
       get 'buy_view'
       get 'user_cart'
+      delete 'delete_all'
+      delete 'bulk_delete'
     end
   end
   root to: "shops#index"

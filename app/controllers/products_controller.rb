@@ -9,8 +9,8 @@ class ProductsController < ApplicationController
   end
 
   def correct_user
-    @friend = current_user.products.find_by(id: params[:id])
-    redirect_to products_path, notice: " you are not authorize to perform this action" if @friend.nil? 
+    @product = current_user.products.find_by(id: params[:id])
+    redirect_to products_path, notice: " you are not authorize to perform this action" if @product.nil? 
   end
 
   def buy_view
@@ -25,6 +25,11 @@ class ProductsController < ApplicationController
   # GET /products/1 or /products/1.json
   def show
     
+  end
+
+  def bulk_delete
+    params[:product_id].uniq.each {|x| Product.find(x).destroy if x.present?}
+  redirect_to '/products'
   end
 
   # GET /products/new

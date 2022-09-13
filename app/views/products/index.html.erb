@@ -1,9 +1,13 @@
 
 <h1>admin</h1>
 
+<%=form_with(url: bulk_delete_products_url ,method: :delete, data: {confirm: "are you sure"}) do |form|%>
+
+
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
+      <th>select</th>
       <th>Title</th>
       <th>Price</th>
       <th>user id</th>
@@ -13,21 +17,25 @@
 
   <tbody>
     <% @products.each do |product| %>
+      <% if product.user == current_user %>
       <tr>
+      <td><%= form.check_box "product_id[]",{}, product.id, '' %></td>
         <td><%= product.title %></td>
         <td><%= product.price %></td>
         <td><%= product.user_id %></td>
         <td><%= link_to 'Show', product, class: 'btn btn-outline-secondary' %>
         <%#= link_to 'Edit', edit_product_path(product), class: 'btn btn-outline-secondary' %>
         <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
-        <% if product.user == current_user %>
+        
       <td>  <%= link_to 'user contact details', buy_view_products_path, class: 'btn btn-outline-secondary' %>
         
       </td>
       </tr>
      
-    <% end %>
+      <% end %>
         <%end%>
   </tbody>
 </table>
+<%= form.submit "bulk delete" , class: 'btn btn-outline-danger' %><br><br>
 <div><%= link_to 'New Product', new_product_path, class: 'btn btn-primary' %></div>
+<%end%>

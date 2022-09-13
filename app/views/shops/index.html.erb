@@ -1,11 +1,10 @@
-<p id="notice"><%= notice %></p>
 <%#if !user_signed_in?%>
 <%#= link_to 'sign in',  new_user_session_path%>
 <%#= link_to 'sign up', new_user_registration_path %>
 <%#else%>
 <%#= link_to 'sign out', destroy_user_session_path, method: :delete %>
 <%#end%>
-
+<%if user_signed_in? %>
 <h1>Products</h1>
 
 <table class="table table-striped" >
@@ -58,3 +57,17 @@
     <%#= link_to 'go to cart',  cards_show_path , class: 'btn btn btn-secondary' %>
   </strong></h2>
 </div>
+<%else%>
+
+<div class="jumbotron">
+  <h1 class="display-4">
+   Login to get your product list<br>
+   <%= link_to 'login', new_user_session_path , class: 'btn btn-lg btn-info' %>
+  </h1>
+  <p class="lead"><h2><strong><i>
+    or sign up as a new user<br>
+    <%= link_to 'sign up', new_user_registration_path, class: 'btn btn-lg btn-dark  ' %>
+  </i></strong></h2></p>
+  
+</div>
+<%end%>
